@@ -1,12 +1,17 @@
 import { useContext } from "react";
-import Nav from "./components/Nav";
+import ThemeToggler from "./components/ThemeToggler";
 import { ThemeContext } from "./context/ThemeContext";
 
 function App() {
-	const { theme, setTheme } = useContext(ThemeContext);
+	const { theme } = useContext(ThemeContext);
 	return (
 		<>
-			<Nav />
+			<div
+				className="[background:var(--gradient-light)] dark:[background:var(--gradient-dark)] min-h-screen p-8"
+				data-theme={theme || "light"}
+			>
+				<ThemeToggler />
+			</div>
 		</>
 	);
 }
